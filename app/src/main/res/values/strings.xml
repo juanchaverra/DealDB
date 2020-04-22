@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DealDB</string>
+    <string name="end_date">end_date</string>
+    <string name="tittle">tittle</string>
+    <string name="store">store</string>
+    <string name="descripcion">descripcion</string>
+</resources>
