@@ -1,149 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.DetailActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView
+    <data>
+        <variable
+            name="model"
+            type="com.example.dealdb.viewmodel.DetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:context=".view.DetailActivity">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/iv_picture2"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:scaleType="fitXY"/>
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/tittle"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:textColor="#01168A"/>
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/store"
-                android:textStyle="bold"
-                android:layout_marginLeft="8dp" />
+                <ImageView
+                    android:id="@+id/iv_picture2"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:scaleType="fitXY"
+                    app:loadImageDetail="@{model.getDeal().imageUrl}" />
 
-            <TextView
-                android:id="@+id/tv_store2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/store"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="8dp" />
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{model.getDeal().title}"
+                    android:textColor="#01168A"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
 
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/store_lb"
+                    android:textStyle="bold" />
 
-                <TableRow
+                <TextView
+                    android:id="@+id/tv_store2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{model.getDeal().store}"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/tv_start_date_lb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/end_date"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="8dp"
-                        android:layout_column="1"/>
-                    <TextView
-                        android:id="@+id/tv_start_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginStart="64dp"
-                        android:text="@string/end_date"
-                        android:textColor="#2E7E11"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:layout_column="2"
-                        android:layout_marginLeft="64dp" />
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/tv_end_date_lb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/end_date"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="8dp"
-                        android:layout_column="1"/>
 
-                    <TextView
-                        android:id="@+id/tv_end_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_column="2"
-                        android:layout_marginStart="64dp"
-                        android:layout_marginLeft="64dp"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/end_date"
-                        android:textColor="#7E1111"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </TableRow>
-            </TableLayout>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/descripcion"
-                android:textStyle="bold"
-                android:layout_marginLeft="8dp" />
+                        <TextView
+                            android:id="@+id/tv_start_date_lb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/start_date_lb"
+                            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tv_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/descripcion"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:layout_marginLeft="8dp" />
+                        <TextView
+                            android:id="@+id/tv_start_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_column="2"
+                            android:layout_marginStart="64dp"
+                            android:layout_marginLeft="64dp"
+                            android:layout_marginTop="8dp"
+                            android:text="@{model.getDeal().startDate}"
+                            android:textColor="#2E7E11"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tv_end_date_lb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_column="1"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/end_date_lb"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_end_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_column="2"
+                            android:layout_marginStart="64dp"
+                            android:layout_marginLeft="64dp"
+                            android:layout_marginTop="8dp"
+                            android:text="@{model.getDeal().endDate}"
+                            android:textColor="#7E1111"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+                </TableLayout>
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/description_lb"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{model.getDeal().description}"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
 
+            </LinearLayout>
 
 
-        </LinearLayout>
-
-
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

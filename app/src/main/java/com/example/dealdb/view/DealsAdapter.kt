@@ -66,14 +66,6 @@ class DealsAdapter(var mainViewModel: MainViewModel):
             this.deal = deal
         }
 
-  /*      override fun onClick(v: View) {
-            val intent = Intent(itemView.context, DetailActivity::class.java)
-            intent.putExtra("cupon", deal)
-            itemView.context.startActivity(intent)
-        }
-*/
-
-
     }
 
 }

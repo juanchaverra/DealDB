@@ -1,5 +1,6 @@
 package com.example.dealdb.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Message
@@ -50,34 +51,16 @@ class MainActivity : AppCompatActivity() {
             Log.d("Deal", it.get(0).title)
             mainViewModel?.setDealsInDealsAdapter(it)
         })
-    }
-/*
-    fun showErrorMsg(message: String?){
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+
+        setUpListClick()
     }
 
-    fun showDealList(dealList: ArrayList<Offer>){
-        rv_deals.adapter = DealsAdapter(dealList)
+    fun setUpListClick(){
+        mainViewModel?.getDealSelected()?.observe(this, Observer{deal ->
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra("cupon", deal)
+            startActivity(intent)
+        })
     }
 
-
-  private fun loadList() {
-      val apiKey = "76e0808fb145103cc0be319c505340bb"
-
-      ApiService.create()
-          .getDeal(apiKey)
-          .enqueue(object : Callback<Deals>{
-              override fun onFailure(call: Call<Deals>, t: Throwable) {
-                  Log.d("Error", t.message)
-              }
-
-              override fun onResponse(call: Call<Deals>, response: Response<Deals>) {
-                  if (response.isSuccessful){
-                      listDeals = response.body()?.offers as ArrayList<Offer>
-                      val dealsAdapter = DealsAdapter(listDeals)
-                      rv_deals.adapter = dealsAdapter
-                  }
-              }
-          })
-  }*/
 }

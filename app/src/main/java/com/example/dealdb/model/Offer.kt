@@ -2,6 +2,7 @@ package com.example.dealdb.model
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Offer(
     @SerializedName("categories")
@@ -42,4 +43,4 @@ data class Offer(
     val type: String,
     @SerializedName("url")
     val url: String
-)
+) : Serializable

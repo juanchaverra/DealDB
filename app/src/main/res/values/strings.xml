@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">DealDB</string>
-    <string name="end_date">end_date</string>
     <string name="tittle">tittle</string>
-    <string name="store">store</string>
-    <string name="descripcion">descripcion</string>
+    <string name="store_lb">Store:</string>
+    <string name="start_date_lb">Start date:</string>
+    <string name="description_lb">Description:</string>
+    <string name="end_date_lb">End date:</string>
 </resources>
